@@ -22,8 +22,8 @@
           </li>
 
           <li>
-            <a href="{{url('/nilai_raort')}}">
-              <i class="bi bi-circle"></i><span>Nilai Raport</span>
+            <a href="{{url('/Kelas')}}">
+              <i class="bi bi-circle"></i><span>Kelas</span>
             </a>
         </ul>
       </li><!-- End Components Nav -->
