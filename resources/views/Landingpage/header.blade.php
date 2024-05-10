@@ -8,7 +8,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="getstarted scrollto" href="{{url('/admin')}}">Yuk Login</a></li>
+          <li><a class="getstarted scrollto" href="{{url('/dashboard_instruktur')}}">Yuk Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
