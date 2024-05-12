@@ -30,12 +30,12 @@ class AuthController extends Controller
             // return redirect()->route('admin');
             $request->session()->regenerate();
 
-            $userRole = Auth::user()->role;
+            $userRole = Auth::user()->m_roles_id;
 
-            if ($userRole == 'user') {
-                return redirect()->route('user');
-            } elseif ($userRole == 'admin') {
-                return redirect()->route('admin');
+            if ($userRole == 1) {
+                return redirect()->route('dashboard.instruktur');
+            } elseif ($userRole == 2) {
+                return redirect()->route('dashboard.askorwil');
             }
         }else{
             return redirect('login')->withErrors(['loginError' => 'Email atau Password Salah']);
@@ -67,32 +67,26 @@ class AuthController extends Controller
             'password'=> Hash::make($request->password)
         ];
         
-        $result = User::create($data);
+        User::create($data);
 
-        if ($result) {
-            return redirect()->route('auth.regisIndex')->with('success','Register Berhasil');
+        $authLogin = [
+            'email'=> $request->email,
+            'password'=> $request->password
+        ];
+        if (Auth::attempt($authLogin)){
+            $userRole = Auth::user()->m_roles_id;
+            if ($userRole == 1) {
+                return redirect()->route('dashboard.instruktur');
+            } elseif ($userRole == 2) {
+                return redirect()->route('dashboard.askorwil');
+            }
         }else{
-            return redirect()->route('auth.regisIndex')->with('error','Register Gagal');
+            return redirect('login')->withErrors('Email Atau Password Salah');
         }
-
-        // $authLogin = [
-        //     'email'=> $request->email,
-        //     'password'=> $request->password
-        // ];
-        // if (Auth::attempt($authLogin)){
-        //     $userRole = Auth::user()->role;
-        //     if ($userRole == 'user') {
-        //         return redirect()->route('user');
-        //     } elseif ($userRole == 'admin') {
-        //         return redirect()->route('admin');
-        //     }
-        // }else{
-        //     return redirect('login')->withErrors('Email Atau Password Salah');
-        // }
     }
 
     function logout() {
         Auth::logout();
-        return redirect()->route('index');
+        return redirect()->route('home');
     }
 }

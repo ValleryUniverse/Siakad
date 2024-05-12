@@ -5,12 +5,17 @@
 @section('content')
 <div class="mt-7 w-25 center border rounded px-3 py-3 mx-auto">
   <h1 class="text-center">Register</h1>
+  @if(session('error'))
+      <div class="alert alert-success">
+          {{ session('error') }}
+      </div>
+  @endif
   <form action={{ route('auth.register') }} method="POST">
     @csrf
       <!-- Name input -->
       <div class="mb-4">
         <label class="form-label" for="name">Name</label>
-        <input type="text" name="name" class="form-control" />
+        <input type="text" name="nama" class="form-control" />
         @if($errors->has('name'))
           <p class="text-danger">{{ $errors->first('name') }}</p>
         @endif
