@@ -4,7 +4,7 @@
     <ul class="sidebar-nav" id="sidebar-nav">
 
       <li class="nav-item">
-        <a class="nav-link " href="{{url('/kategori')}}">
+        <a class="nav-link " href="{{url('/dashboard_instruktur')}}">
           <i class="bi bi-grid"></i>
           <span>Dashboard</span>
         </a>
@@ -12,17 +12,17 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" data-bs-target="#components-nav" data-bs-toggle="collapse" href="#">
-          <i class="bi bi-menu-button-wide"></i><span>Master Data</span><i class="bi bi-chevron-down ms-auto"></i>
+          <i class="bi bi-menu-button-wide"></i><span>Input Data Sekolah & Kelas</span><i class="bi bi-chevron-down ms-auto"></i>
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="{{url('/sekolah')}}">
+            <a href="{{url('/form_sekolah')}}">
               <i class="bi bi-circle"></i><span>Sekolah</span>
             </a>
           </li>
 
           <li>
-            <a href="{{url('/Kelas')}}">
+            <a href="{{url('/form_kelas')}}">
               <i class="bi bi-circle"></i><span>Kelas</span>
             </a>
         </ul>

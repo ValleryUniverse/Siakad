@@ -1,4 +1,4 @@
-@extends('backend.index')
+@extends('layout_instruktur.index')
 @section('content')
 <section class="section dashboard">
     <div class="row">

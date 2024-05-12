@@ -2,14 +2,6 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\siswaController;
-use App\Http\Controllers\instrukturController;
-use App\Http\Controllers\sekolahController;
-use App\Http\Controllers\nilai_raportController;
-use App\Http\Controllers\DashboardController;
-
-
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -38,18 +30,14 @@ Route::get('/admin', function () {
     return view('auth.login');
 });
 
-Route::get('/sekolah', function () {
-    return view('backend.index');
-});
 
-// Route::resource('/siswa', siswaController::class);
-// Route::resource('/sekolah', sekolahController::class);
-// Route::resource('/instruktur', instrukturController::class);
-// Route::resource('/nilai_raport', nilai_raportController::class);
-
-Route::get('/profile', function () {
-    return view('backend.profile');
+// --------- Instruktur --------
+Route::get('/dashboard_instruktur', function () {
+    return view('Instruktur.dashboard_instruktur');
 });
-Route::get('/contact', function () {
-    return view('backend.contact');
+Route::get('/form_sekolah', function () {
+    return view('Instruktur.form_sekolah');
+});
+Route::get('/form_kelas', function () {
+    return view('Instruktur.form_kelas');
 });

@@ -10,6 +10,7 @@
         <ul>
           <li><a class="getstarted scrollto" href={{ route('auth.loginIndex') }}>Yuk Login</a></li>
           <li><a class="getstarted scrollto" href={{ route('auth.regisIndex') }}>Yuk Register</a></li>
+          <li><a class="getstarted scrollto" href="{{url('/dashboard_instruktur')}}">Yuk Login</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
