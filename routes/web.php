@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\siswaController;
 use App\Http\Controllers\instrukturController;
@@ -20,6 +21,11 @@ use App\Http\Controllers\DashboardController;
 |
 */
 
+Route::get('/login', [AuthController::class, 'index'])->name('auth.loginIndex');
+Route::get('/register', [AuthController::class, 'registerIndex'])->name('auth.regisIndex');
+Route::post('/login/proses', [AuthController::class, 'login'])->name('auth.login');
+Route::post('/register/proses', [AuthController::class, 'register'])->name('auth.register');
+
 // INDEX
 Route::get('/', function () {
     return view('Landingpage.home');
@@ -29,7 +35,7 @@ Route::get('/home', function () {
 });
 // ------- Admin ------//
 Route::get('/admin', function () {
-    return view('backend.dashboard');
+    return view('auth.login');
 });
 
 Route::get('/sekolah', function () {
